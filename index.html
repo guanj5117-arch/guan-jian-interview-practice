@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>管健 面试练习助手</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <div>
+          <p class="eyebrow">中铝宁夏能源 · 面试训练</p>
+          <h1>面试练习助手</h1>
+          <p class="subhead">输入或说出问题，快速定位你的口语回答。用于面试前练习与复盘。</p>
+        </div>
+        <div class="count" id="count">正在载入题库…</div>
+      </header>
+
+      <section class="notice">
+        <strong>练习模式</strong>：本页提供题库检索与语音练习，帮助你组织真实经历与表达；请在正式面试中独立、如实作答。
+      </section>
+
+      <section class="controls" aria-label="题目输入">
+        <label for="query">面试官的问题</label>
+        <div class="search-row">
+          <input id="query" type="search" placeholder="例如：你为什么选择中铝宁夏能源？" autocomplete="off" />
+          <button id="searchBtn" class="primary">查找答案</button>
+          <button id="micBtn" class="secondary" title="使用本机浏览器语音识别">🎙️ 语音练习</button>
+        </div>
+        <p id="speechStatus" class="muted" aria-live="polite">可直接输入问题；Chrome/Edge 支持语音识别。</p>
+      </section>
+
+      <section class="quick" aria-label="快捷题目">
+        <button data-q="自我介绍">自我介绍</button>
+        <button data-q="为什么选择中铝宁夏能源">求职动机</button>
+        <button data-q="安全生产">安全生产</button>
+        <button data-q="PLC">PLC 与控制</button>
+        <button data-q="职业规划">职业规划</button>
+        <button data-q="设备报警怎么处理">突发场景</button>
+      </section>
+
+      <section id="answerPanel" class="answer hidden" aria-live="polite">
+        <p class="eyebrow">最匹配回答</p>
+        <h2 id="answerQuestion"></h2>
+        <p id="answerMeta" class="muted"></p>
+        <div id="answerText" class="answer-text"></div>
+        <div class="answer-actions">
+          <button id="copyBtn" class="secondary">复制回答</button>
+          <button id="nextBtn" class="secondary">换一题练习</button>
+        </div>
+      </section>
+
+      <section class="matches">
+        <div class="section-title"><h2>相关题目</h2><span id="matchCount"></span></div>
+        <div id="results" class="result-list"></div>
+      </section>
+    </main>
+    <template id="resultTemplate">
+      <button class="result-card">
+        <span class="result-category"></span>
+        <strong class="result-question"></strong>
+        <span class="result-preview"></span>
+      </button>
+    </template>
+    <script src="app.js"></script>
+  </body>
+</html>
